@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="build">
+
+<!-- APPLICATION METADATA -->
+<property name="mdpc.name"    value="mdvl-progress"/>
+<property name="mdpc.section" value="x11"/>
+<property name="mdpc.descrs"  value="Graphical Progress Bar (no effect)"/>
+<property name="mdpc.arch"    value="any"/>
+<property name="mdpc.depends" value="default-jre, $${shlibs:Depends}, $${misc:Depends}"/>
+<property name="mdpc.descrl">
+ Progress is a simple application which displays a progress-bar.
+ .
+ This package provides all versions:
+ Two Java versions and one X11/C version.
+</property>
+
+<property name="mdpc.file.install">
+progress1/progress1 /usr/bin
+progress1/progress1.jar /usr/share/java
+progress2j/progress2j /usr/bin
+progress2j/progress2j.jar /usr/share/java
+progress2c/progress2c /usr/bin
+</property>
+
+<!-- PART OF TPL HERE FOR USE IN BUILD -->
+<property environment="env"/>
+<condition property="masysma.internal.includepath.rel" value="${env.MDVL_CI_PHOENIX_ROOT}" else=".."><isset property="env.MDVL_CI_PHOENIX_ROOT"/></condition>
+<property name="masysma.internal.includepath" location="${masysma.internal.includepath.rel}"/>
+
+<!-- SPECIFIC BUILD TODO THIS IS RECURSIVE ANT SHOULD BE SUPPORTED IN TEMPLATE! -->
+<target name="build">
+	<ant dir="progress1"  target="jar"/>
+	<ant dir="progress2j" target="jar"/>
+	<exec dir="progress2c" executable="ant" failonerror="true">
+		<env key="MDVL_CI_PHOENIX_ROOT" value="${masysma.internal.includepath}"/>
+	</exec>
+</target>
+
+<target name="clean">
+	<ant dir="progress1"  target="clean"/>
+	<ant dir="progress2j" target="clean"/>
+	<ant dir="progress2c" target="clean"/>
+</target>
+
+<target name="dist-clean" depends="clean">
+	<ant dir="progress1"  target="dist-clean"/>
+	<ant dir="progress2j" target="dist-clean"/>
+	<ant dir="progress2c" target="dist-clean"/>
+</target>
+
+<!-- CI INTEGRATION -->
+<target name="package_triggered" depends="package">
+	<property name="masysma.ci.trigger" value="newver"/>
+</target>
+<target name="package_triggered_i386" depends="package">
+	<property name="masysma.ci.trigger"     value="newver"/>
+	<property name="masysma.ci.runenv"      value="ssh"/>
+	<property name="masysma.ci.runenv.name" value="i386"/>
+</target>
+
+<!-- TPL IMPORT (PARTIALLY GIVEN ABOVE) -->
+<property name="masysma.internal.loadpath" value="${masysma.internal.includepath}/co-build/ant-build-template.xml"/>
+<condition property="masysma.internal.load" value="file://${masysma.internal.loadpath}" else="https://raw.githubusercontent.com/m7a/co-build/master/ant-build-template.xml"><resourceexists><file file="${masysma.internal.loadpath}"/></resourceexists></condition>
+<import><url url="${masysma.internal.load}"/></import>
+
+</project>
