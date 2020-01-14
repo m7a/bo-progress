@@ -1,0 +1,8 @@
+LANG    = java
+TARGET  = progress.jar
+RES     = .
+MAIN    = ma.progress.Progress2
+SECTION = 33
+
+include /usr/share/mdvl/make.mk
+include /data/main/man/web/external/inc.mk

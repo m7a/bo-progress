@@ -1,0 +1,20 @@
+SHELL=/bin/sh
+CC=/usr/bin/gcc
+CFLAGS=-Wall -L/usr/X11R6/lib -lX11 -lpthread -O3
+TARGET=progress
+SOURCES=$(shell ls *.c)
+HEADERS=$(shell ls *.h)
+OBJECTS=$(SOURCES:.c=.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS)
+
+install:
+	[ -d $(DESTDIR)/usr/bin ] || mkdir -p $(DESTDIR)/usr/bin
+	cp progress $(DESTDIR)/usr/bin
+
+clean:
+	-rm *.o
+	-rm progress

@@ -1,0 +1,12 @@
+Source: mdvl-progress
+Maintainer: Linux-Fan <Ma_Sys.ma@web.de>
+Section: x11
+Priority: optional
+Standards-Version: 3.9.1
+Build-Depends: debhelper (>= 8)
+
+Package: mdvl-progress
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Progress 2 C version
+ Progress is a simple application which displays a progress-bar.
