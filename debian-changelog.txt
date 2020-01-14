@@ -1,5 +1,11 @@
-mdvl-progress (1.0.0) stable; urgency=medium
+mdvl-progress (2.1.0) stable; urgency=medium
 
   * Package created with MDPC 2
 
  -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Tue, 14 Jan 2020 00:44:56 +0100
+
+mdvl-progress (2.0.0) stable; urgency=low
+
+  * mdvl-progress
+
+ -- Linux-Fan <Ma_Sys.ma@web.de>  Sun, 10 Feb 2013 17:36:18 +0100

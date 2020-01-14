@@ -7,6 +7,7 @@
 <property name="mdpc.descrs"  value="Graphical Progress Bar (no effect)"/>
 <property name="mdpc.arch"    value="any"/>
 <property name="mdpc.depends" value="default-jre, $${shlibs:Depends}, $${misc:Depends}"/>
+<property name="mdpc.cpyear"  value="2013, 2020"/>
 <property name="mdpc.descrl">
  Progress is a simple application which displays a progress-bar.
  .
@@ -32,7 +33,8 @@ progress2c/progress2c /usr/bin
 	<ant dir="progress1"  target="jar"/>
 	<ant dir="progress2j" target="jar"/>
 	<exec dir="progress2c" executable="ant" failonerror="true">
-		<env key="MDVL_CI_PHOENIX_ROOT" value="${masysma.internal.includepath}"/>
+		<env key="MDVL_CI_PHOENIX_ROOT"
+				value="${masysma.internal.includepath}"/>
 	</exec>
 </target>
 
