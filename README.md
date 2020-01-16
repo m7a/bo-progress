@@ -106,4 +106,5 @@ Lämpchen signalisiert werden (Festplattenzugriffe, Netzwerkaktivität) oder
 von CDROM-Laufwerken oder die Verwendung des Systemlautsprechers sein. Speziell
 für den „dauerhaften“ und ressourcenschonenden Einsatz wurden hierzu zwei
 weitere Ma_Sys.ma Programme entwickelt:
-[ma_capsblinker(32)](ma_capsblinker.xhtml) und [maerct(32)](maerct.xhtml).
+[ma_capsblinker(11)](../11/ma_capsblinker.xhtml) und
+[maerct(11)](../11/maerct.xhtml).
