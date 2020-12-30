@@ -1,3 +1,9 @@
+mdvl-progress (2.1.1) stable; urgency=medium
+
+  * Also build on armhf.
+
+ -- Linux-Fan, Ma_Sys.ma <Ma_Sys.ma@web.de>  Thu, 31 Dec 2020 00:07:54 +0100
+
 mdvl-progress (2.1.0) stable; urgency=medium
 
   * Package created with MDPC 2
